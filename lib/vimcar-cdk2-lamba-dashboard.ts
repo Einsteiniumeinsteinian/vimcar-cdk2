@@ -13,56 +13,56 @@ export interface LambdaDashboardsStackProps extends StackProps {
 }
 
 export class CdkVimcar2LambdaDashboardStack extends Stack {
-    
+
 
   protected readonly lambdaDashboard: Dashboard;
 
   protected readonly invocations = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "Invocations",
-      statistic: "sum"
+    namespace: "AWS/Lambda",
+    metricName: "Invocations",
+    statistic: "sum"
   });
 
   protected readonly duration = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "Duration",
-      statistic: "min"
+    namespace: "AWS/Lambda",
+    metricName: "Duration",
+    statistic: "min"
   });
 
   protected readonly errors = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "Errors",
-      statistic: "sum"
+    namespace: "AWS/Lambda",
+    metricName: "Errors",
+    statistic: "sum"
   });
 
   protected readonly throttles = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "Throttles",
-      statistic: "sum"
+    namespace: "AWS/Lambda",
+    metricName: "Throttles",
+    statistic: "sum"
   });
 
   protected readonly provisionedConcurrencySpillovers = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "ProvisionedConcurrencySpilloverInvocations",
-      statistic: "sum"
+    namespace: "AWS/Lambda",
+    metricName: "ProvisionedConcurrencySpilloverInvocations",
+    statistic: "sum"
   });
 
   protected readonly concurrentExecutions = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "ConcurrentExecutions",
-      statistic: "sum"
+    namespace: "AWS/Lambda",
+    metricName: "ConcurrentExecutions",
+    statistic: "sum"
   });
 
   protected readonly provisionedConcurrentExecutions = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "ProvisionedConcurrentExecutions",
-      statistic: "sum"
+    namespace: "AWS/Lambda",
+    metricName: "ProvisionedConcurrentExecutions",
+    statistic: "sum"
   });
 
   protected readonly provisionedConcurrencyUtilization = new Metric({
-      namespace: "AWS/Lambda",
-      metricName: "ProvisionedConcurrencyUtilization",
-      statistic: "sum"
+    namespace: "AWS/Lambda",
+    metricName: "ProvisionedConcurrencyUtilization",
+    statistic: "sum"
   });
 
   protected readonly calls = new Metric({
@@ -100,5 +100,12 @@ export class CdkVimcar2LambdaDashboardStack extends Stack {
     statistic: "sum"
   });
 
- 
+  constructor(scope: Construct, id: string, props: LambdaDashboardsStackProps) {
+    super(scope, id, props);
+
+    this.lambdaDashboard = new Dashboard(this, props.dashboardName, {
+      dashboardName: props.dashboardName
+    });
+  }
+
 }
