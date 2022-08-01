@@ -66,39 +66,39 @@ export class CdkVimcar2LambdaDashboardStack extends Stack {
   });
 
   protected readonly calls = new Metric({
-      namespace: "AWS/ApiGateway",
-      metricName: "Count",
-      // period: period,
-      statistic: "sum"
-    });
+    namespace: "AWS/ApiGateway",
+    metricName: "Count",
+    // period: period,
+    statistic: "sum"
+  });
 
-    protected readonly latency = new Metric({
-      namespace: "AWS/ApiGateway",
-      metricName: "Latency",
-      // period: period,
-      statistic: "avg"
-    });
+  protected readonly latency = new Metric({
+    namespace: "AWS/ApiGateway",
+    metricName: "Latency",
+    // period: period,
+    statistic: "avg"
+  });
 
-    protected readonly integrationLatency = new Metric({
-      namespace: "AWS/ApiGateway",
-      metricName: "IntegrationLatency",
-      // period: period,
-      statistic: "avg"
-    });
+  protected readonly integrationLatency = new Metric({
+    namespace: "AWS/ApiGateway",
+    metricName: "IntegrationLatency",
+    // period: period,
+    statistic: "avg"
+  });
 
-    protected readonly error4xx = new Metric({
-      namespace: "AWS/ApiGateway",
-      metricName: "4XXError",
-      // period: period,
-      statistic: "sum"
-    });
+  protected readonly error4xx = new Metric({
+    namespace: "AWS/ApiGateway",
+    metricName: "4XXError",
+    // period: period,
+    statistic: "sum"
+  });
 
-    protected readonly error5xx = new Metric({
-      namespace: "AWS/ApiGateway",
-      metricName: "5XXError",
-      // period: period,
-      statistic: "sum"
-    });
+  protected readonly error5xx = new Metric({
+    namespace: "AWS/ApiGateway",
+    metricName: "5XXError",
+    // period: period,
+    statistic: "sum"
+  });
 
  
 }
