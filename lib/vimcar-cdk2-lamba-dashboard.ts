@@ -181,4 +181,70 @@ export class CdkVimcar2LambdaDashboardStack extends Stack {
     );
 }
 
+ // adds one row to dashboard for API
+ public addApi(api: ApiDetails) {
+
+  const dimensions = {
+    "ApiName": api.apiName,
+    "Stage": api.apiStage
+  };
+  
+  this.lambdaDashboard.addWidgets(
+
+    new TextWidget({
+      markdown: `### ${api.displayName}`,
+      height: 1,
+      width: 24
+    }),
+
+    new GraphWidget({
+      title: api.displayName + " Calls",
+      left: [
+        this.calls.with({
+          dimensionsMap: dimensions,
+        })
+      ]
+    }),
+
+    new GraphWidget({
+      title: api.displayName + " Latency",
+      left: [
+        this.latency.with({
+          dimensionsMap: dimensions,
+        }),
+
+        this.latency.with({
+          dimensionsMap: dimensions,
+          statistic: "P99",
+        })
+      ]
+    }),
+
+    new GraphWidget({
+      title: api.displayName + " Intg Latency",
+      right: [
+        this.integrationLatency.with({
+          dimensionsMap: dimensions,
+        }),
+        this.integrationLatency.with({
+          dimensionsMap: dimensions,
+          statistic: "P99"
+        })
+      ]
+    }),
+    
+    new GraphWidget({
+      title: api.displayName + " Errors",
+      right: [
+        this.error4xx.with({
+          dimensionsMap: dimensions,
+        }),
+        this.error5xx.with({
+          dimensionsMap: dimensions,
+        })
+      ]
+    }),
+  );
+}
+
 }
