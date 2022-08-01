@@ -108,4 +108,77 @@ export class CdkVimcar2LambdaDashboardStack extends Stack {
     });
   }
 
+  // adds one row to dashboard for each lambda function
+  public addLambda(functionName: string, displayName: string) {
+
+    const dimensions = {
+        "FunctionName": functionName
+    };
+
+    this.lambdaDashboard.addWidgets(
+        new TextWidget({
+            markdown: `### ${displayName}`,
+            height: 1,
+            width: 24
+          }),
+
+        new GraphWidget({
+            title: displayName + " Invocations",
+            left: [
+                this.invocations.with({
+                    dimensionsMap: dimensions,
+                }),
+
+            ]
+        }),
+
+        new GraphWidget({
+            title: displayName + " Duration",
+            left: [
+                this.duration.with({
+                    dimensionsMap: dimensions,
+                }),
+                this.duration.with({
+                    dimensionsMap: dimensions,
+                    statistic: "avg"
+                }),
+                this.duration.with({
+                    dimensionsMap: dimensions,
+                    statistic: "max"
+                }),
+            ]
+        }),
+
+        new GraphWidget({
+            title: displayName + " Errors",
+            left: [
+                this.errors.with({
+                    dimensionsMap: dimensions,
+                }),
+                this.throttles.with({
+                    dimensionsMap: dimensions,
+                }),
+                this.provisionedConcurrencySpillovers.with({
+                    dimensionsMap: dimensions,
+                })
+            ]
+        }),
+
+        new GraphWidget({
+            title: displayName + " ConcurrentExecutions",
+            right: [
+                this.concurrentExecutions.with({
+                    dimensionsMap: dimensions,
+                }),
+                this.provisionedConcurrentExecutions.with({
+                    dimensionsMap: dimensions,
+                }),
+                this.provisionedConcurrencyUtilization.with({
+                    dimensionsMap: dimensions,
+                })
+            ]
+        }),
+    );
+}
+
 }
