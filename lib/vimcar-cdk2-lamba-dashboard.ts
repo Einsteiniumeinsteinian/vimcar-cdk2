@@ -6,3 +6,7 @@ export interface ApiDetails {
   apiStage: string;
   displayName: string;
 }
+
+export interface LambdaDashboardsStackProps extends StackProps {
+  dashboardName: string;
+}
