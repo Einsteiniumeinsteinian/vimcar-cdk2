@@ -4,6 +4,7 @@ This project constitutes an Api Gateway two lamda Functions anda cloudwatch Dash
 
 The CDK Stack provided uses the CloudWatch Metric and GraphWidget classes to visualize the graphs and manages the infrastructure and deployment.
 
+REGION: `eu-west-2`
 
 * The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * The `lib/cdk-workshop-stack.ts `is where your CDK application’s main stack is defined. This is the file we’ll be spending most of our time in.
