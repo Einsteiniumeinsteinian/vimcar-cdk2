@@ -10,12 +10,3 @@ const vimmcar2LambdaDashboardStack = new CdkVimcar2LambdaDashboardStack(app, 'Vi
     dashboardName: "VimcarLambdaDashboard"
 })
 const vimcarCdk2Stack = new VimcarCdk2Stack(app, 'VimcarCdk2Stack');
-
-vimmcar2LambdaDashboardStack.addLambda("HelloHandler", "HelloHandler");
-vimmcar2LambdaDashboardStack.addLambda("HiHandler", "HiHandler");
-
-vimmcar2LambdaDashboardStack.addApi({
-    apiName: "vimcarLambdaApi",
-    apiStage: "prod",
-    displayName: "Vimcar Api Gateway"
-});
