@@ -7,8 +7,7 @@ node_modules
 .cdk.staging
 cdk.out
 
-#sheets
-README.md
+#rough
 lib/teststack.ts
 lib/failedstack.ts
 text.txt

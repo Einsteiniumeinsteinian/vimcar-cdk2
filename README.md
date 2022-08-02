@@ -5,12 +5,12 @@ This project constitutes an Api Gateway two lamda Functions anda cloudwatch Dash
 The CDK Stack provided uses the CloudWatch Metric and GraphWidget classes to visualize the graphs and manages the infrastructure and deployment.
 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-The `lib/cdk-workshop-stack.ts `is where your CDK application’s main stack is defined. This is the file we’ll be spending most of our time in.
-The `package.json` is your npm module manifest. It includes information like the name of your app, version, dependencies and build scripts like “watch” and “build” (package-lock.json is maintained by npm)
-The `tsconfig.json` your project’s typescript configuration
-The `.gitignore` and .npmignore tell git and npm which files to include/exclude from source control and when publishing this module to the package manager.
-The `node_modules` is maintained by npm and includes all your project’s dependencies.
+* The `cdk.json` file tells the CDK Toolkit how to execute your app.
+* The `lib/cdk-workshop-stack.ts `is where your CDK application’s main stack is defined. This is the file we’ll be spending most of our time in.
+* The `package.json` is your npm module manifest. It includes information like the name of your app, version, dependencies and build scripts like “watch” and “build” (package-lock.json is maintained by npm)
+* The `tsconfig.json` your project’s typescript configuration
+* The `.gitignore` and .npmignore tell git and npm which files to include/exclude from source control and when publishing this module to the package manager.
+* The `node_modules` is maintained by npm and includes all your project’s dependencies.
 
 ## Getting started
 
