@@ -18,7 +18,7 @@ export class VimcarCdk2Stack extends Stack {
     const hello = new lambda.Function(this, 'HelloHandler', {
       runtime: lambda.Runtime.PYTHON_3_7,    // execution environment
       code: lambda.Code.fromAsset('lambda'),  // code loaded from "lambda" directory
-      handler: 'ambassador.handler',              // file is "hello", function is "handler"
+      handler: 'hello.handler',              // file is "hello", function is "handler"
       functionName: "one",
       role: helloRole
     });
@@ -28,7 +28,7 @@ export class VimcarCdk2Stack extends Stack {
     const hi = new lambda.Function(this, 'HiHandler', {
       runtime: lambda.Runtime.PYTHON_3_7,    // execution environment
       code: lambda.Code.fromAsset('lambda'),  // code loaded from "lambda" directory
-      handler: 'delegate.handler',              // file is "hello", function is "handler"
+      handler: 'hi.handler',              // file is "hello", function is "handler"
       functionName: "two"
     });
 
