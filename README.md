@@ -1,6 +1,6 @@
 # Vimcar Data delegation Service
 
-This project constitutes an Api Gateway two lamda Functions anda cloudwatch Dashboard. The Api gateway receives a `POST` request on `\test`. The gateway forwards the json object to a Lamda function **(ambassador)** which responds immediately and delegates the task to another Lamda resource **(delegate)** to handle the resource. CloudWatch Dashboard visualizes the API Calls, Latency, Integration Latency, and Errors. As well as Lambda Metrics such as Throttles, Errors, Concurrent Executions and Invocations.  
+This project constitutes an Api Gateway two lamda Functions anda cloudwatch Dashboard. The Api gateway receives a `POST` request on `\test`. The gateway forwards the json object to a Lamda function **(ambassador:hello)** which responds immediately and delegates the task to another Lamda resource **(delegate:hi)** to handle the resource. CloudWatch Dashboard visualizes the API Calls, Latency, Integration Latency, and Errors. As well as Lambda Metrics such as Throttles, Errors, Concurrent Executions and Invocations.  
 
 The CDK Stack provided uses the CloudWatch Metric and GraphWidget classes to visualize the graphs and manages the infrastructure and deployment.
 
